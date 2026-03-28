@@ -314,22 +314,6 @@ Places orders by: (1) reading cart items, (2) calculating totals, (3) creating a
 
 ---
 
-## 🚀 Suggested Improvements
-
-Once the basics work, here are ways to improve the project:
-
-1. **Add JWT Authentication** — Use `python-jose` to generate login tokens stored in localStorage
-2. **Product Reviews** — Add a POST endpoint and a star-rating UI component  
-3. **Redis Caching** — Cache popular product lists to reduce DB queries
-4. **Image Upload** — Add a `/admin/products` page to add real products with image upload
-5. **Email Notifications** — Use `smtplib` or SendGrid API to send order confirmation emails
-6. **Payment Gateway** — Integrate Razorpay or PayU for real payments
-7. **Algolia Search** — Replace MySQL LIKE search with Algolia for faster, smarter search
-8. **Docker** — Add `docker-compose.yml` so the whole app starts with one command
-9. **Admin Dashboard** — Create an admin panel to manage products, orders, users
-10. **Progressive Web App** — Add a service worker so users can install the app on mobile
-
----
 
 ## 📦 Running Both Servers (Quick Reference)
 
