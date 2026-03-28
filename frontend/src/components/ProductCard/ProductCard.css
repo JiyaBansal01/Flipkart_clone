@@ -1,0 +1,225 @@
+/* components/ProductCard/ProductCard.css */
+
+.product-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: white;
+  border-radius: var(--fk-radius);
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+  border: 1px solid transparent;
+}
+
+.product-card:hover {
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  transform: translateY(-2px);
+  border-color: var(--fk-border);
+}
+
+/* Wishlist button (top right corner) */
+.wishlist-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 2;
+  background: white;
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+  opacity: 0;
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.product-card:hover .wishlist-btn {
+  opacity: 1;
+}
+
+.wishlist-btn.active {
+  opacity: 1;
+}
+
+.wishlist-btn:hover {
+  transform: scale(1.1);
+}
+
+/* Product Image */
+.product-image-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 12px;
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover .product-image {
+  transform: scale(1.05);
+}
+
+/* Discount badge on image */
+.discount-badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: var(--fk-green);
+  color: white;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 2px;
+}
+
+/* Product Info Section */
+.product-info {
+  padding: 12px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.product-name {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--fk-text-dark);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-height: 1.4;
+}
+
+.product-brand {
+  font-size: 12px;
+  color: var(--fk-text-medium);
+}
+
+/* Rating */
+.product-rating {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.rating-badge {
+  font-size: 12px;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.rating-badge.high   { background: #388e3c; color: white; }
+.rating-badge.medium { background: #ff9f00; color: white; }
+.rating-badge.low    { background: #f44336; color: white; }
+
+.review-count {
+  font-size: 12px;
+  color: var(--fk-text-medium);
+}
+
+/* Price */
+.price-tag {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 2px;
+}
+
+.price-final {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--fk-text-dark);
+}
+
+.price-original {
+  font-size: 12px;
+  color: var(--fk-text-medium);
+  text-decoration: line-through;
+}
+
+.price-discount {
+  font-size: 12px;
+  color: var(--fk-green);
+  font-weight: 500;
+}
+
+/* Stock */
+.stock-warning {
+  font-size: 11px;
+  color: var(--fk-orange);
+  font-weight: 500;
+}
+
+.out-of-stock {
+  font-size: 12px;
+  color: var(--fk-red);
+  font-weight: 500;
+}
+
+/* Add to Cart button — slides up on card hover */
+.card-add-cart-btn {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background: white;
+  color: var(--fk-blue);
+  border: none;
+  border-top: 1px solid var(--fk-border);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transform: translateY(100%);
+  opacity: 0;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.product-card:hover .card-add-cart-btn {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.card-add-cart-btn:hover {
+  background: var(--fk-blue-light);
+}
+
+.card-add-cart-btn.loading {
+  color: var(--fk-text-medium);
+  cursor: wait;
+}
+
+/* Mobile: always show add to cart button */
+@media (max-width: 768px) {
+  .card-add-cart-btn {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  
+  .wishlist-btn {
+    opacity: 1;
+  }
+}

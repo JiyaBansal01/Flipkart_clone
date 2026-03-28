@@ -1,0 +1,478 @@
+/* ============================================================
+   RESPONSIVE.CSS - Mobile, Tablet & Desktop Support
+   ============================================================
+   Breakpoints used:
+   Mobile:  < 480px   (phones)
+   Tablet:  480–768px (tablets, large phones)
+   Laptop:  768–1024px
+   Desktop: > 1024px
+
+   HOW TO USE:
+   Add this import at the top of your App.js:
+   import './styles/responsive.css';
+   ============================================================ */
+
+/* ============================================================
+   NAVBAR - RESPONSIVE
+   ============================================================ */
+
+/* Tablet */
+@media (max-width: 900px) {
+  .navbar-container {
+    padding: 0 12px;
+    gap: 8px;
+  }
+
+  .logo-tagline { display: none; }
+
+  .search-bar { max-width: 100%; }
+
+  .nav-item-label { display: none; }
+
+  .nav-item { padding: 6px 8px; min-height: 40px; }
+
+  .hide-mobile { display: none !important; }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; }
+
+  .navbar-container { height: 50px; padding: 0 8px; gap: 6px; }
+
+  .logo-text { font-size: 16px; }
+
+  .search-bar { height: 32px; }
+
+  .search-input { font-size: 12px; padding: 0 8px; }
+
+  .search-btn { width: 36px; }
+
+  .category-strip-item { padding: 6px 8px; min-width: 60px; }
+
+  .cat-emoji { font-size: 16px; }
+  .cat-name  { font-size: 10px; }
+
+  /* Push content below fixed navbar */
+  .page-content { padding-top: 95px; }
+}
+
+/* ============================================================
+   HOMEPAGE - RESPONSIVE
+   ============================================================ */
+
+/* Hero Banner */
+@media (max-width: 768px) {
+  .banner-slide    { height: 220px; }
+  .banner-title    { font-size: 26px; }
+  .banner-subtitle { font-size: 14px; }
+  .banner-emoji    { font-size: 36px; margin-bottom: 6px; }
+  .banner-cta      { padding: 8px 20px; font-size: 13px; }
+}
+
+@media (max-width: 480px) {
+  .banner-slide    { height: 180px; }
+  .banner-title    { font-size: 20px; }
+  .banner-subtitle { font-size: 12px; margin-bottom: 14px; }
+  .banner-emoji    { font-size: 28px; }
+  .banner-tag      { font-size: 10px; }
+  .banner-cta      { padding: 7px 16px; font-size: 12px; }
+}
+
+/* Category Grid */
+@media (max-width: 1024px) {
+  .category-grid { grid-template-columns: repeat(4, 1fr); gap: 8px; }
+}
+
+@media (max-width: 600px) {
+  .category-grid { grid-template-columns: repeat(4, 1fr); gap: 4px; }
+  .category-card { padding: 10px 4px; gap: 4px; }
+  .cat-icon      { font-size: 24px; }
+  .cat-label     { font-size: 11px; }
+}
+
+@media (max-width: 380px) {
+  .category-grid { grid-template-columns: repeat(4, 1fr); }
+  .cat-label     { font-size: 9px; }
+}
+
+/* Products Grid */
+@media (max-width: 1024px) {
+  .products-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 360px) {
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Promo Banners */
+@media (max-width: 768px) {
+  .promo-grid { grid-template-columns: 1fr; gap: 8px; }
+  .promo-card { padding: 16px 20px; }
+  .promo-card h3 { font-size: 16px; }
+}
+
+@media (max-width: 480px) {
+  .promo-grid { grid-template-columns: repeat(2, 1fr); }
+  .promo-card { padding: 14px; }
+  .promo-emoji { font-size: 28px; }
+}
+
+/* Section Spacing */
+@media (max-width: 768px) {
+  .category-section,
+  .products-section,
+  .promo-section { padding: 14px 10px; margin-bottom: 8px; }
+
+  .section-header h2 { font-size: 16px; }
+}
+
+/* Footer */
+@media (max-width: 768px) {
+  .footer-inner { grid-template-columns: repeat(2, 1fr); gap: 20px; padding: 24px 16px; }
+}
+
+@media (max-width: 480px) {
+  .footer-inner { grid-template-columns: 1fr 1fr; gap: 16px; padding: 16px; }
+  .footer-col h4 { font-size: 11px; }
+  .footer-col a  { font-size: 12px; margin-bottom: 6px; }
+  .footer-brand  { grid-column: 1 / -1; }
+}
+
+/* ============================================================
+   PRODUCT LIST PAGE - RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 1024px) {
+  .filter-sidebar { width: 200px; min-width: 200px; }
+  .products-grid-plp { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 768px) {
+  /* Move filter sidebar to top as horizontal scroll */
+  .plp-container {
+    flex-direction: column;
+    padding: 8px;
+    gap: 8px;
+  }
+
+  .filter-sidebar {
+    width: 100%;
+    min-width: 100%;
+    position: static;
+    max-height: none;
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    scrollbar-width: none;
+    background: white;
+    border-radius: 4px;
+    padding: 0;
+  }
+
+  .filter-sidebar::-webkit-scrollbar { display: none; }
+
+  .filter-section {
+    min-width: 150px;
+    border-bottom: none;
+    border-right: 1px solid var(--fk-border);
+    padding: 12px;
+    flex-shrink: 0;
+  }
+
+  .filter-section:last-child { border-right: none; }
+
+  .plp-main { margin-left: 0; }
+
+  .products-grid-plp { grid-template-columns: repeat(2, 1fr); }
+
+  /* Sort bar wraps */
+  .results-header { flex-direction: column; align-items: flex-start; gap: 10px; }
+
+  .sort-options { flex-wrap: wrap; }
+
+  .sort-btn { font-size: 11px; padding: 5px 8px; }
+}
+
+@media (max-width: 480px) {
+  .products-grid-plp { grid-template-columns: repeat(2, 1fr); }
+
+  .results-title { font-size: 15px; }
+
+  .pagination { padding: 12px; gap: 2px; }
+
+  .page-btn { min-width: 30px; height: 30px; font-size: 12px; }
+}
+
+/* ============================================================
+   PRODUCT CARD - RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 768px) {
+  /* Always show add to cart and wishlist on mobile */
+  .card-add-cart-btn {
+    transform: translateY(0) !important;
+    opacity: 1 !important;
+    font-size: 11px;
+    padding: 8px;
+  }
+
+  .wishlist-btn { opacity: 1 !important; }
+
+  .product-name  { font-size: 12px; }
+  .price-final   { font-size: 14px; }
+  .product-info  { padding: 8px; gap: 4px; }
+}
+
+@media (max-width: 480px) {
+  .product-name { font-size: 11px; -webkit-line-clamp: 2; }
+  .price-final  { font-size: 13px; }
+  .price-original, .price-discount { font-size: 11px; }
+  .product-info { padding: 6px; }
+  .discount-badge { font-size: 10px; }
+}
+
+/* ============================================================
+   PRODUCT DETAIL PAGE - RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 1024px) {
+  .pdp-main { flex-direction: column; }
+
+  .image-section {
+    width: 100%;
+    min-width: 100%;
+    position: static;
+    border-right: none;
+    border-bottom: 1px solid var(--fk-border);
+    max-height: 450px;
+  }
+
+  .main-image { max-height: 320px; }
+
+  /* Fix action buttons on mobile */
+  .pdp-actions {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: white;
+    box-shadow: 0 -2px 8px rgba(0,0,0,0.15);
+  }
+
+  .info-section { padding-bottom: 80px; }
+}
+
+@media (max-width: 768px) {
+  .pdp-title     { font-size: 18px; }
+  .pdp-final-price { font-size: 24px; }
+
+  .thumbnails { width: 50px; padding: 10px 6px; gap: 6px; }
+  .thumb-btn  { width: 40px; height: 40px; }
+
+  .pdp-tabs-section { margin-top: 8px; }
+
+  .tab-btn { padding: 10px 16px; font-size: 13px; }
+
+  .specs-table td { padding: 8px 10px; font-size: 13px; }
+  .spec-key       { width: 140px; }
+}
+
+@media (max-width: 480px) {
+  .image-section  { max-height: 350px; }
+  .main-image     { max-height: 260px; }
+  .pdp-title      { font-size: 15px; }
+  .pdp-final-price { font-size: 20px; }
+  .pdp-brand      { font-size: 12px; }
+
+  .offers-list li { font-size: 12px; }
+  .offer-tag      { font-size: 10px; }
+
+  .pincode-input  { width: 120px; }
+
+  .action-btn     { font-size: 12px; padding: 12px; }
+
+  .tab-content    { padding: 14px; }
+}
+
+/* ============================================================
+   CART PAGE - RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 900px) {
+  .cart-container { flex-direction: column; padding: 8px; gap: 8px; }
+
+  .price-summary {
+    width: 100%;
+    min-width: 100%;
+    position: static;
+    order: -1; /* Show price summary ABOVE items on mobile */
+  }
+
+  /* Sticky checkout bar at bottom */
+  .cart-footer-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: white;
+    box-shadow: 0 -2px 8px rgba(0,0,0,0.15);
+    padding: 12px 16px;
+  }
+
+  .cart-items-section { padding-bottom: 70px; }
+}
+
+@media (max-width: 480px) {
+  .cart-item         { gap: 10px; padding: 12px; }
+  .cart-item-image   { width: 72px; height: 72px; }
+  .cart-item-name    { font-size: 13px; }
+  .cart-item-price   { font-size: 15px; }
+  .cart-item-total   { display: none; } /* Hide total column on small screens */
+
+  .place-order-btn   { padding: 11px 24px; font-size: 13px; }
+
+  .empty-cart-img    { width: 150px; }
+  .empty-cart h2     { font-size: 18px; }
+}
+
+/* ============================================================
+   CHECKOUT PAGE - RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 900px) {
+  .checkout-container { flex-direction: column; padding: 8px; gap: 8px; }
+
+  .checkout-summary {
+    width: 100%;
+    min-width: 100%;
+    position: static;
+    order: -1; /* Summary shown first on mobile */
+  }
+
+  .summary-items { max-height: 200px; }
+}
+
+@media (max-width: 600px) {
+  .form-row { flex-direction: column; gap: 12px; }
+
+  .address-form { padding: 14px; gap: 12px; }
+
+  .payment-options { padding: 12px 14px; }
+
+  .payment-option { padding: 10px 12px; gap: 10px; }
+  .payment-icon   { font-size: 20px; }
+  .payment-label  { font-size: 13px; }
+
+  .place-order-final { font-size: 14px; padding: 13px; }
+}
+
+@media (max-width: 480px) {
+  .step-header h2  { font-size: 14px; }
+  .step-number     { width: 24px; height: 24px; font-size: 12px; }
+
+  .form-group input,
+  .form-group select { padding: 8px 10px; font-size: 13px; }
+}
+
+/* ============================================================
+   ORDER CONFIRMATION - RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 900px) {
+  .confirmation-body { flex-direction: column; }
+
+  .conf-summary { width: 100%; min-width: 100%; }
+}
+
+@media (max-width: 480px) {
+  .success-banner    { flex-direction: column; text-align: center; padding: 20px 16px; gap: 12px; }
+  .success-icon      { font-size: 36px; }
+  .success-text h1   { font-size: 18px; }
+  .success-text p    { font-size: 13px; }
+
+  .conf-item-img     { width: 56px; height: 56px; }
+  .conf-item-name    { font-size: 12px; }
+
+  .delivery-info-card { flex-wrap: wrap; }
+  .delivery-emoji     { display: none; }
+}
+
+/* ============================================================
+   ORDER HISTORY - RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 600px) {
+  .order-header { flex-direction: column; gap: 6px; align-items: flex-start !important; }
+}
+
+/* ============================================================
+   GENERAL UTILITY - RESPONSIVE
+   ============================================================ */
+
+/* Bottom navigation bar space on mobile (for fixed bars) */
+@media (max-width: 768px) {
+  .has-bottom-bar { padding-bottom: 70px; }
+}
+
+/* Touch-friendly tap targets */
+@media (max-width: 768px) {
+  button, a, input, select {
+    min-height: 40px;
+  }
+
+  .qty-btn { width: 38px; height: 38px; }
+}
+
+/* Smooth scrolling on mobile */
+@media (max-width: 768px) {
+  * { -webkit-overflow-scrolling: touch; }
+}
+
+/* Hide scrollbars on mobile horizontal scrolls */
+@media (max-width: 768px) {
+  .category-strip,
+  .sort-options,
+  .filter-sidebar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .category-strip::-webkit-scrollbar,
+  .sort-options::-webkit-scrollbar,
+  .filter-sidebar::-webkit-scrollbar { display: none; }
+}
+
+/* ============================================================
+   WISHLIST PAGE - RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 600px) {
+  .wishlist-grid { grid-template-columns: repeat(2, 1fr) !important; }
+}
+
+/* ============================================================
+   TOAST NOTIFICATION - RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 480px) {
+  .toast {
+    width: 90%;
+    text-align: center;
+    font-size: 13px;
+    padding: 10px 16px;
+    bottom: 80px; /* Above bottom action bars */
+  }
+}

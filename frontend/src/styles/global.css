@@ -1,0 +1,300 @@
+/* 
+ * styles/global.css - Global Styles
+ * ===================================
+ * Flipkart-inspired color scheme and base styles.
+ * Import this in index.js or App.js
+ *
+ * FLIPKART COLOR PALETTE:
+ *   Primary Blue:  #2874f0  (buttons, links, accents)
+ *   Yellow:        #ff9f00  (star ratings, highlights)
+ *   Green:         #388e3c  (price, in-stock)
+ *   Red:           #ff6161  (discounts, offers)
+ *   Light Gray:    #f1f3f6  (page background)
+ *   White:         #ffffff  (cards)
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+/* ── CSS Custom Properties (Variables) ── */
+:root {
+  --fk-blue:        #2874f0;
+  --fk-blue-dark:   #1a5dc8;
+  --fk-blue-light:  #e8f0fe;
+  --fk-yellow:      #ff9f00;
+  --fk-green:       #388e3c;
+  --fk-red:         #ff6161;
+  --fk-orange:      #fb641b;
+  --fk-bg:          #f1f3f6;
+  --fk-white:       #ffffff;
+  --fk-border:      #e0e0e0;
+  --fk-text-dark:   #212121;
+  --fk-text-medium: #878787;
+  --fk-text-light:  #b0b0b0;
+  --fk-navbar-bg:   #2874f0;
+  --fk-shadow:      0 2px 8px rgba(0,0,0,0.12);
+  --fk-radius:      4px;
+  --fk-transition:  all 0.2s ease;
+}
+
+/* ── Reset & Base ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: var(--fk-bg);
+  color: var(--fk-text-dark);
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+  border: none;
+  outline: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+ul { list-style: none; }
+
+/* ── Layout Utilities ── */
+.container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.page-content {
+  padding-top: 80px; /* Offset for fixed navbar */
+  min-height: 100vh;
+}
+
+.flex { display: flex; }
+.flex-center { display: flex; align-items: center; justify-content: center; }
+.flex-between { display: flex; align-items: center; justify-content: space-between; }
+.flex-col { display: flex; flex-direction: column; }
+.gap-8 { gap: 8px; }
+.gap-16 { gap: 16px; }
+
+/* ── Card Base ── */
+.card {
+  background: var(--fk-white);
+  border-radius: var(--fk-radius);
+  box-shadow: var(--fk-shadow);
+}
+
+/* ── Buttons ── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 24px;
+  border-radius: var(--fk-radius);
+  font-size: 14px;
+  font-weight: 500;
+  transition: var(--fk-transition);
+  cursor: pointer;
+  border: none;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.btn-primary {
+  background: var(--fk-orange);
+  color: white;
+  box-shadow: 0 2px 4px rgba(251,100,27,0.4);
+}
+.btn-primary:hover {
+  background: #e85d17;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(251,100,27,0.4);
+}
+
+.btn-secondary {
+  background: var(--fk-yellow);
+  color: white;
+  box-shadow: 0 2px 4px rgba(255,159,0,0.4);
+}
+.btn-secondary:hover {
+  background: #e8920a;
+}
+
+.btn-outline {
+  background: white;
+  border: 1px solid var(--fk-blue);
+  color: var(--fk-blue);
+}
+.btn-outline:hover {
+  background: var(--fk-blue-light);
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ── Price Display ── */
+.price-tag {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.price-final {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--fk-text-dark);
+}
+
+.price-original {
+  font-size: 13px;
+  color: var(--fk-text-medium);
+  text-decoration: line-through;
+}
+
+.price-discount {
+  font-size: 13px;
+  color: var(--fk-green);
+  font-weight: 500;
+}
+
+/* ── Star Rating ── */
+.rating-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  background: var(--fk-green);
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 3px;
+}
+
+.rating-badge.low { background: #f44336; }
+.rating-badge.medium { background: var(--fk-yellow); }
+
+/* ── Toast Notification ── */
+.toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(0);
+  background: #323232;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 4px;
+  font-size: 14px;
+  z-index: 9999;
+  animation: toastIn 0.3s ease, toastOut 0.3s ease 2.7s forwards;
+  white-space: nowrap;
+}
+
+@keyframes toastIn {
+  from { opacity: 0; transform: translateX(-50%) translateY(20px); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+@keyframes toastOut {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+
+/* ── Loading Spinner ── */
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--fk-border);
+  border-top-color: var(--fk-blue);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.loading-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+}
+
+/* ── Empty State ── */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.empty-state .icon { font-size: 64px; margin-bottom: 16px; }
+.empty-state h3 { font-size: 20px; margin-bottom: 8px; }
+.empty-state p { color: var(--fk-text-medium); margin-bottom: 24px; }
+
+/* ── Breadcrumb ── */
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--fk-text-medium);
+  padding: 12px 0;
+}
+
+.breadcrumb a:hover { color: var(--fk-blue); }
+.breadcrumb .separator { color: var(--fk-text-light); }
+.breadcrumb .current { color: var(--fk-text-dark); }
+
+/* ── Divider ── */
+.divider {
+  height: 1px;
+  background: var(--fk-border);
+  margin: 16px 0;
+}
+
+/* ── Badge ── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  border-radius: 9px;
+  font-size: 11px;
+  font-weight: 700;
+  background: var(--fk-red);
+  color: white;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .page-content { padding-top: 60px; }
+  .hide-mobile { display: none !important; }
+}
+
+@media (max-width: 480px) {
+  .container { padding: 0 8px; }
+}

@@ -1,0 +1,150 @@
+/* pages/OrderConfirmationPage.css */
+
+.confirmation-page { background: var(--fk-bg); padding-bottom: 40px; }
+
+.confirmation-container { padding-top: 16px; }
+
+.success-banner {
+  background: linear-gradient(135deg, #388e3c, #4caf50);
+  color: white;
+  border-radius: var(--fk-radius);
+  padding: 28px 24px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 16px;
+  animation: slideDown 0.5s ease;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.success-icon { font-size: 48px; animation: bounce 1s ease 0.5s; }
+
+@keyframes bounce {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.2); }
+}
+
+.success-text h1 { font-size: 24px; font-weight: 600; margin-bottom: 6px; }
+.success-text p  { font-size: 14px; opacity: 0.9; }
+
+/* Body layout */
+.confirmation-body {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.confirmation-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.conf-summary {
+  width: 300px;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Card */
+.conf-card {
+  background: white;
+  border-radius: var(--fk-radius);
+  padding: 20px;
+}
+
+.conf-card-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: var(--fk-text-dark);
+}
+
+/* Items */
+.conf-items { display: flex; flex-direction: column; gap: 14px; }
+
+.conf-item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.conf-item-img {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  border: 1px solid var(--fk-border);
+  border-radius: 4px;
+  padding: 4px;
+}
+
+.conf-item-name  { font-size: 13px; line-height: 1.4; margin-bottom: 3px; }
+.conf-item-meta  { font-size: 12px; color: var(--fk-text-medium); margin-bottom: 3px; }
+.conf-item-price { font-size: 14px; font-weight: 500; }
+
+/* Address */
+.conf-address p { font-size: 13px; line-height: 1.8; color: var(--fk-text-dark); }
+.addr-name { font-weight: 600; font-size: 14px !important; }
+
+/* Delivery info card */
+.delivery-info-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+}
+
+.delivery-status-badge {
+  background: var(--fk-green);
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 12px;
+  white-space: nowrap;
+}
+
+.delivery-eta-label { font-size: 12px; color: #555; }
+.delivery-eta { font-size: 14px; font-weight: 600; color: var(--fk-text-dark); }
+.delivery-emoji { font-size: 32px; margin-left: auto; }
+
+/* Order meta */
+.conf-order-meta { display: flex; flex-direction: column; gap: 10px; margin-bottom: 12px; }
+
+.meta-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: var(--fk-text-dark);
+}
+
+.status-badge {
+  background: var(--fk-blue-light);
+  color: var(--fk-blue);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 10px;
+}
+
+.summary-row { display: flex; justify-content: space-between; padding: 6px 0; font-size: 14px; }
+.free-delivery { color: var(--fk-green); font-weight: 500; }
+.total-row { font-size: 16px; }
+
+/* Action buttons */
+.conf-actions { display: flex; flex-direction: column; gap: 10px; }
+.conf-btn { width: 100%; padding: 12px; justify-content: center; }
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .confirmation-body { flex-direction: column; }
+  .conf-summary { width: 100%; min-width: 100%; }
+  .success-banner { flex-direction: column; text-align: center; }
+}
